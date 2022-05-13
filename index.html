@@ -1,161 +1,162 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <title>황금고블린 (Golden Goblin)</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <head>
+        <meta charset="utf-8">
+        <title>황금고블린 (Golden Goblin)</title>
+        <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="images/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
 
-    <style></style>
-  </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center justify-content-center" style="width: 100vw; height: 100vh">
+                <div class="container w-50 h-50 d-flex align-items-center justify-content-center" style="flex-direction: column;">
+                    <div class="text">CLICK THE CHEST</div>
 
-  <body class="index">
-    <div class="container-fluid">
-        <div class="row d-flex align-items-center justify-content-center" style="width: 100vw; height: 100vh">
-            <div class="container w-50 h-50 d-flex align-items-center justify-content-center" style="flex-direction: column;">
-                <div class="text">CLICK THE CHEST</div>
-
-                <input type="checkbox" id="toggle-treasure"/>
-                <div id="treasure-chest-positioner">
-                    <label id="treasure-chest" for="toggle-treasure">
-                    <div id="lid">
-                        <div id="lid-left">
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                        </div>
-                        <div id="lid-panels">
-                            <div class="panel" id="panel-0">
-                                <div class="board top"></div>
-                                <div class="board bottom"></div>
-                                <div class="iron-band left"></div>
-                                <div class="iron-band middle"></div>
-                                <div class="iron-band right"></div>
+                    <input type="checkbox" id="toggle-treasure"/>
+                    <div id="treasure-chest-positioner">
+                        <label id="treasure-chest" for="toggle-treasure">
+                        <div id="lid">
+                            <div id="lid-left">
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
                             </div>
-                            <div class="panel" id="panel-1">
-                                <div class="board top"></div>
-                                <div class="board bottom"></div>
-                                <div class="iron-band left"></div>
-                                <div class="iron-band middle"></div>
-                                <div class="iron-band right"></div>
-                            </div>
-                            <div class="panel" id="panel-2">
-                                <div class="board top"></div>
-                                <div class="board bottom"></div>
-                                <div class="iron-band left"></div>
-                                <div class="iron-band middle"></div>
-                                <div class="iron-band right"></div>
-                            </div>
-                            <div class="panel" id="panel-3">
-                                <div class="board top"></div>
-                                <div class="board bottom"></div>
-                                <div class="iron-band left"></div>
-                                <div class="iron-band middle"></div>
-                                <div class="iron-band right"></div>
-                            </div>
-                            <div class="panel" id="panel-4">
-                                <div class="board top"></div>
-                                <div class="board bottom"></div>
-                                <div class="iron-band left"></div>
-                                <div class="iron-band middle"></div>
-                                <div class="iron-band right"></div>
-                            </div>
-                        </div>
-                        <div id="lid-right">
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                            <div class="side-panel"></div>
-                        </div>
-                    </div>
-                    <div id="chest">
-                        <div id="front-panel">
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="iron-bars">
-                                <div class="top-bar iron-bar long"></div>
-                                <div class="bottom-bar iron-bar long"></div>
-                                <div class="middle-bar iron-bar short">
-                                    <div id="lock">
-                                        <div id="keyhole"></div>
-                                    </div>
+                            <div id="lid-panels">
+                                <div class="panel" id="panel-0">
+                                    <div class="board top"></div>
+                                    <div class="board bottom"></div>
+                                    <div class="iron-band left"></div>
+                                    <div class="iron-band middle"></div>
+                                    <div class="iron-band right"></div>
                                 </div>
-                                <div class="left-bar iron-bar short"></div>
-                                <div class="right-bar iron-bar short"></div>
+                                <div class="panel" id="panel-1">
+                                    <div class="board top"></div>
+                                    <div class="board bottom"></div>
+                                    <div class="iron-band left"></div>
+                                    <div class="iron-band middle"></div>
+                                    <div class="iron-band right"></div>
+                                </div>
+                                <div class="panel" id="panel-2">
+                                    <div class="board top"></div>
+                                    <div class="board bottom"></div>
+                                    <div class="iron-band left"></div>
+                                    <div class="iron-band middle"></div>
+                                    <div class="iron-band right"></div>
+                                </div>
+                                <div class="panel" id="panel-3">
+                                    <div class="board top"></div>
+                                    <div class="board bottom"></div>
+                                    <div class="iron-band left"></div>
+                                    <div class="iron-band middle"></div>
+                                    <div class="iron-band right"></div>
+                                </div>
+                                <div class="panel" id="panel-4">
+                                    <div class="board top"></div>
+                                    <div class="board bottom"></div>
+                                    <div class="iron-band left"></div>
+                                    <div class="iron-band middle"></div>
+                                    <div class="iron-band right"></div>
+                                </div>
+                            </div>
+                            <div id="lid-right">
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
+                                <div class="side-panel"></div>
                             </div>
                         </div>
-                        <div id="left-panel">
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="iron-bars">
-                                <div class="top-bar iron-bar long"></div>
-                                <div class="bottom-bar iron-bar long"></div>
-                                <div class="left-bar iron-bar short"></div>
-                                <div class="right-bar iron-bar short"></div>
+                        <div id="chest">
+                            <div id="front-panel">
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="iron-bars">
+                                    <div class="top-bar iron-bar long"></div>
+                                    <div class="bottom-bar iron-bar long"></div>
+                                    <div class="middle-bar iron-bar short">
+                                        <div id="lock">
+                                            <div id="keyhole"></div>
+                                        </div>
+                                    </div>
+                                    <div class="left-bar iron-bar short"></div>
+                                    <div class="right-bar iron-bar short"></div>
+                                </div>
+                            </div>
+                            <div id="left-panel">
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="iron-bars">
+                                    <div class="top-bar iron-bar long"></div>
+                                    <div class="bottom-bar iron-bar long"></div>
+                                    <div class="left-bar iron-bar short"></div>
+                                    <div class="right-bar iron-bar short"></div>
+                                </div>
+                            </div>
+                            <div id="bottom-panel">
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                            </div>
+                            <div id="right-panel">
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="iron-bars">
+                                    <div class="top-bar iron-bar long"></div>
+                                    <div class="bottom-bar iron-bar long"></div>
+                                    <div class="left-bar iron-bar short"></div>
+                                    <div class="right-bar iron-bar short"></div>
+                                </div>
+                            </div>
+                            <div id="back-panel">
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="side-chest-panel"></div>
+                                <div class="iron-bars">
+                                    <div class="top-bar iron-bar long"></div>
+                                    <div class="middle-bar iron-bar short"></div>
+                                    <div class="bottom-bar iron-bar long"></div>
+                                    <div class="left-bar iron-bar short"></div>
+                                    <div class="right-bar iron-bar short"></div>
+                                </div>
                             </div>
                         </div>
-                        <div id="bottom-panel">
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                        </div>
-                        <div id="right-panel">
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="iron-bars">
-                                <div class="top-bar iron-bar long"></div>
-                                <div class="bottom-bar iron-bar long"></div>
-                                <div class="left-bar iron-bar short"></div>
-                                <div class="right-bar iron-bar short"></div>
-                            </div>
-                        </div>
-                        <div id="back-panel">
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="side-chest-panel"></div>
-                            <div class="iron-bars">
-                                <div class="top-bar iron-bar long"></div>
-                                <div class="middle-bar iron-bar short"></div>
-                                <div class="bottom-bar iron-bar long"></div>
-                                <div class="left-bar iron-bar short"></div>
-                                <div class="right-bar iron-bar short"></div>
-                            </div>
-                        </div>
+                        </label>
                     </div>
-                    </label>
                 </div>
             </div>
         </div>
-    </div>
+    </body>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  </body>
+    <script>
+        document.getElementById("toggle-treasure").addEventListener('change', function() { if (this.checked) setTimeout(function () { location.href="/ability.html"; }, 400); });
+    </script>
 </html>
