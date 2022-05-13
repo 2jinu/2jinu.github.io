@@ -16,7 +16,6 @@ html, body {
     color: white;
     font-size: 2.5rem;
     font-family: cursive;
-    text-transform: uppercase;
     animation: shining 0.1s alternate infinite;
     padding-left: 20%;
 }
