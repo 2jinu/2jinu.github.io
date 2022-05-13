@@ -12,6 +12,12 @@ html, body {
     overflow: hidden;
 }
 
+.index {
+    background-image: url('/images/golden-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .neon {
     color: white;
     font-size: 2.5rem;
