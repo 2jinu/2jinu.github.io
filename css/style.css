@@ -21,10 +21,6 @@ html, body {
     padding-left: 20%;
 }
 
-.neon:hover {
-    cursor: pointer;
-}
-
 @keyframes shining {
     from {
         text-shadow: 0 0 6px rgba(218,165,32, 0.9),
