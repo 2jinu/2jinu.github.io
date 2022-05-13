@@ -13,3 +13,33 @@ html, body
     color: #fff;
     overflow: hidden;
 }
+
+.btn-wrap { margin: 25px 0px; }
+  
+.btn {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.btn-trapezoid-outline {
+    display: inline-block;
+    color: #fcec0c;
+    transform-style: preserve-3d;
+    padding: 20px 70px;
+    border: 1px solid #fcec0c;
+    transform: perspective(200px) rotateX(35deg) translateZ(25px) translateY(5px);
+    -webkit-backface-visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+.btn-trapezoid-outline span {
+    font-size: 15px;
+    letter-spacing: 3px;
+    display: block;
+    transform: perspective(160px) rotateX(-18deg) translateZ(4px) translateY(4px);
+}
+
+.btn-trapezoid-outline:hover {
+    background: #fcec0c;
+    color: #136377;
+}
