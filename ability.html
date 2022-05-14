@@ -29,23 +29,14 @@
         <p class="w-100 text-center" style="position: fixed; font-size: 5rem; font-family: cursive; padding-top: 15px;">Ability</p>
         <div id="drag-container">
             <div id="spin-container">
-                <!-- Add your images (or video) here 19.05cm/12.68cm-->
-                <img src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                <img src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                <img src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                <img src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                <img src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                <!-- <img src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""> -->
-            
-                <!-- Example image with link -->
-                <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
-                    <img src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                </a>
-            
-                <!-- Example add video  -->
-                <!-- <video controls autoplay="autoplay" loop>
-                    <source src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
-                </video> -->
+                <a target="_blank" href="https://CTF_WARGAME"><img src="/images/ctf.png" alt=""></a>
+                <a target="_blank" href="https://CVE"><img src="/images/cve.png" alt=""></a>
+                <a target="_blank" href="https://Python"><img src="/images/python.png" alt=""></a>
+                <a target="_blank" href="https://C_C++_C#"><img src="/images/c.png" alt=""></a>
+                <a target="_blank" href="https://OS"><img src="/images/os.png" alt=""></a>
+                <a target="_blank" href="https://HTML_CSS_JS"><img src="/images/front-end.png" alt=""></a>
+                <a target="_blank" href="https://PHP"><img src="/images/php.png" alt=""></a>
+                <a target="_blank" href="https://Unity"><img src="/images/unity.png" alt=""></a>
             
                 <!-- Text at center of ground -->
                 <p>E-Mail : 4eznfun@gmail.com<br>HP : 010-8602-5874</p>
@@ -79,13 +70,13 @@
 
         var odrag = document.getElementById("drag-container");
         var ospin = document.getElementById("spin-container");
-        var aImg = ospin.getElementsByTagName("img");
+        var aImg = ospin.getElementsByTagName("a"); //("img");
         var aVid = ospin.getElementsByTagName("video");
         var aEle = [...aImg, ...aVid]; // combine 2 arrays
 
         // Size of images
-        ospin.style.width = imgWidth + "px";
-        ospin.style.height = imgHeight + "px";
+        //ospin.style.width = imgWidth + "px";
+        //ospin.style.height = imgHeight + "px";
 
         // Size of ground - depend on radius
         var ground = document.getElementById("ground");
@@ -94,9 +85,13 @@
 
         function init(delayTime) {
             for (var i = 0; i < aEle.length; i++) {
+                //aEle[i].style.transform = "rotateY(" + i * (360 / aEle.length) + "deg) translateY(-" + imgHeight + "px) translateZ(" + radius + "px)";
                 aEle[i].style.transform = "rotateY(" + i * (360 / aEle.length) + "deg) translateZ(" + radius + "px)";
                 aEle[i].style.transition = "transform 1s";
                 aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
+                //
+                aEle[i].style.width = imgWidth + "px";
+                aEle[i].style.height = imgHeight + "px";
             }
         }
 
@@ -148,5 +143,11 @@
             };
             return false;
         };
+        // document.onmousewheel = function (e) {
+        //     e = e || window.event;
+        //     var d = e.wheelDelta / 20 || -e.detail;
+        //     radius += d;
+        //     init(1);
+        // };
     </script>
 </html>

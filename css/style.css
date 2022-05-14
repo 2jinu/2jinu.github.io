@@ -60,7 +60,7 @@ input[type=checkbox] { display: none; }
     backface-visibility: hidden;
     background-blend-mode: color-burn;
 }
-  #lid .panel:after {
+#lid .panel:after {
     content: "";
     display: block;
     width: 100%;
@@ -75,7 +75,7 @@ input[type=checkbox] { display: none; }
     transform-style: preserve-3d;
     border: 1px solid black;
     background-image: linear-gradient(to bottom, transparent 49%, black 49%, black 51%, transparent 51%);
-  }
+}
 #lid .panel#panel-0 { transform: translateZ(2.8571428571rem) translateY(-0.4rem); }
 #lid .panel#panel-1 { transform: translateZ(6.5359477124rem) rotateX(45deg) translateY(-6.3291139241rem); }
 #lid .panel#panel-2 { transform: translateZ(0.2rem) translateY(-7.4074074074rem) rotateX(90deg); }
@@ -285,12 +285,13 @@ body {
     -webkit-transform: rotateX(-10deg);
     transform: rotateX(-10deg);
 }
-#drag-container img, #drag-container video {
+/* #drag-container img, #drag-container video { */
+#drag-container a {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -170px;
     width: 100%;
     height: 100%;
     line-height: 200px;
@@ -300,7 +301,13 @@ body {
     box-shadow: 0 0 8px #fff;
     -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
-#drag-container img:hover, #drag-container video:hover {
+#drag-container img {
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline;
+}
+/* #drag-container img:hover, #drag-container video:hover { */
+#drag-container a:hover {
     -webkit-box-shadow: 0 0 15px #fffd;
     box-shadow: 0 0 15px #fffd;
     -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
