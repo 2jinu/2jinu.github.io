@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'KoPubDotumMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: KoPubDotumMedium;
 }
 
 html, body {
@@ -17,7 +25,7 @@ html, body {
 }
 
 .text {
-    font-family: cursive;
+    /* font-family: cursive; */
     font-size: 3.5em;
     padding-bottom: 100px;
     text-align: center;
@@ -314,7 +322,7 @@ body {
     cursor: pointer;
 }
 #drag-container p {
-    font-family: Serif;
+    /* font-family: Serif; */
     position: absolute;
     top: 100%;
     left: 50%;
