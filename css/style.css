@@ -305,8 +305,8 @@ body {
     line-height: 200px;
     font-size: 50px;
     text-align: center;
-    -webkit-box-shadow: 0 0 8px #fff;
-    box-shadow: 0 0 8px #fff;
+    /* -webkit-box-shadow: 0 0 8px #fff;
+    box-shadow: 0 0 8px #fff; */
     -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
 #drag-container img {
