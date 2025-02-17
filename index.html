@@ -62,7 +62,7 @@
     }
     .tab-content {
         display: none;
-        padding: 20px 20px 0px 20px;
+        padding: 20px 10px 0px 10px;
         border-top: 2px solid var(--green);
     }
     .tab-content.active {
@@ -134,6 +134,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        filter: brightness(0.9);
     }
     .card:hover {
         transition-duration: 150ms;
@@ -167,7 +168,7 @@
         <div id="experience" class="tab-content active">
             <div class="section">
                 <h2 class="text-uppercase text-center pixelator text-green">experience</h2>
-                <ul>
+                <ul class="overflow-hidden">
                     <li class="exp-li">
                         <div class="d-flex justify-content-start align-items-center">
                             <strong class="fs-5 text-pink">셋시큐리티</strong>
@@ -435,7 +436,7 @@
         <div id="skill" class="tab-content ">
             <div class="section">
                 <h2 class="text-uppercase text-center pixelator text-green">skill</h2>
-                <ul class="auto-grid">
+                <ul class="auto-grid overflow-hidden">
                     <li class="card" style="--bg-image: url('./logo/python.png')">
                         <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">python</span>
                         <div class="glow"></div>
@@ -482,7 +483,7 @@
         <div id="link" class="tab-content ">
             <div class="section">
                 <h2 class="text-uppercase text-center pixelator text-green">link</h2>
-                <ul>
+                <ul class="overflow-auto">
                     <li class="py-2">
                         <div class="d-flex justify-content-start align-items-center">
                             <i class="fa-solid fa-envelope fs-5"></i>
