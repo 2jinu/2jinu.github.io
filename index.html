@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+        font-family: "Freesentation";
+        src: url("./fonts/FreesentationVF.ttf") format("truetype");
+        font-weight: 100 900;
+    }
+    :root {
+        --black: rgba(26, 26, 26, 1);
+        --white: rgba(255, 255, 255, 1);
+        --muted: rgba(150, 150, 150, 1);
+        --green: rgba(0, 255, 0, 1);
+        --green-down: rgba(0, 200, 0, .8);
+        --pink: rgba(255, 0, 255, 1);
+        --cyan: rgba(0, 255, 255, 1);
+        --yellow: rgba(255, 255, 0, 1);
+        --shadow-opacity: 0.3;
+    }
+    * { font-family: "Freesentation"; color: var(--white); user-select: none; }
+    body { background-color: var(--black); overflow-x: hidden; }
+    ul { list-style-type: none; padding: 0; }
+    a { color: var(--white); text-decoration: none; }
+    a:hover { transform: translateY(-30%); }
+    .text-pink { color: var(--pink); }
+    .text-green { color: var(--green); }
+    .text-cyan { color: var(--cyan); }
+    .text-yellow { color: var(--yellow); }
+    .text-muted { color: var(--muted)!important; }
+    .pixelator { font-family: 'Press Start 2P', cursive; }
+    .container {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 255, 0, var(--shadow-opacity));
+        border: 1px solid var(--green);
+        border-radius: 8px;
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .tab-button {
+        cursor: pointer;
+        color: var(--green-down);
+        text-align: center;
+    }
+    .tab-button.active {
+        cursor: unset;
+        color: var(--green);
+    }
+    .tab-button:not(.active):hover {
+        color: var(--green);
+        transform: translateY(-30%);
+    }
+    .tab-content {
+        display: none;
+        padding: 20px 20px 0px 20px;
+        border-top: 2px solid var(--green);
+    }
+    .tab-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease-out;
+    }
+    .auto-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-gap: 10px;
+    }
+    .exp-li {
+        margin: 10px 0;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border-left: 4px solid var(--yellow);
+        box-shadow: 0 0 10px rgba(255, 255, 0, var(--shadow-opacity));
+        animation: slideIn 0.5s ease-out forwards;
+        opacity: 0;
+    }
+    .exp-li:nth-child(1) { animation-delay: 0s; }
+    .exp-li:nth-child(2) { animation-delay: .2s; }
+    .exp-li:nth-child(3) { animation-delay: .4s; }
+    @media (max-width: 768px) {
+        .tabs { flex-direction: column; }
+        .tab-button { margin: 5px 0; }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes slideIn {
+        from {
+            transform: translateX(50%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    .card {
+        font-weight: bold;
+        width: 150px;
+        height: 200px;
+        box-shadow: none;
+
+        border: none;
+        border-radius: 10px;
+        background-size: cover;
+
+        position: relative;
+
+        transition-duration: 300ms;
+        transition-property: transform, box-shadow;
+        transition-timing-function: ease-out;
+        transform: rotate3d(0);
+        overflow: hidden;
+
+        background: black;
+        --bg-image: none;
+    }
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0.7);
+    }
+    .card:hover {
+        transition-duration: 150ms;
+        box-shadow: 0 2px 10px 2px rgba(150, 150, 150, var(--shadow-opacity));
+    }
+    .card span {
+        z-index: 999;
+    }
+    .card .glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+    }
+  </style>
+</head>
+<body class="w-100 h-100 py-5">
+    <div class="container">
+        <h1 class="text-center fw-bold m-0 text-pink">Jinwoo Lee</h1>
+        <p class="text-center small text-uppercase pixelator text-cyan">developer</p>
+
+        <div class="tabs">
+            <div class="tab-button text-uppercase pixelator mx-2 active" data-tab="experience">exp</div>
+            <div class="tab-button text-uppercase pixelator mx-2 " data-tab="project">quest</div>
+            <div class="tab-button text-uppercase pixelator mx-2 " data-tab="skill">skill</div>
+            <div class="tab-button text-uppercase pixelator mx-2 " data-tab="link">link</div>
+        </div>
+
+        <div id="experience" class="tab-content active">
+            <div class="section">
+                <h2 class="text-uppercase text-center pixelator text-green">experience</h2>
+                <ul>
+                    <li class="exp-li">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <strong class="fs-5 text-pink">셋시큐리티</strong>
+                            <span class="ps-3 small text-muted">Feb 2022 - Present</span>
+                        </div>
+                        <p class="mt-2 mb-1 ps-2 text-uppercase pixelator text-cyan">Contents creator</p>
+                        <p class="small m-0 ps-3">Building vulnerable and attack environments based on virtualization technology for <span class="fw-bold">cybersecurity</span> education, along with content creation and training.</p>
+                        <p class="small m-0 ps-3">Planning, designing, creating CTF challenges, and customizing CTF platforms.</p>
+
+                        <p class="mt-2 mb-1 ps-2 text-uppercase pixelator text-cyan">Developer</p>
+                        <p class="small m-0 ps-3">Software development using C, Python, Bash, and other languages.</p>
+                        <p class="small m-0 ps-3">Web development involving both frontend, backend, and database management.</p>
+                    </li>
+
+                    <li class="exp-li">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <strong class="fs-5 text-pink">(주) 두두아이티</strong>
+                            <span class="ps-3 small text-muted">Feb 2019 - Dec 2021</span>
+                        </div>
+                        <p class="mt-2 mb-1 ps-2 text-uppercase pixelator text-cyan">Contents creator</p>
+                        <p class="small m-0 ps-3">Building vulnerable and attack environments based on virtualization technology for <span class="fw-bold">cybersecurity</span> education, along with content creation and training.</p>
+                        <p class="small m-0 ps-3">Planning, designing, creating CTF challenges, and customizing CTF platforms.</p>
+
+                        <p class="mt-2 mb-1 ps-2 text-uppercase pixelator text-cyan">Developer</p>
+                        <p class="small m-0 ps-3">Software development using C, Python, Bash, and other languages.</p>
+                        <p class="small m-0 ps-3">Web development involving both frontend, backend, and database management.</p>
+                    </li>
+
+                    <li class="exp-li">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <strong class="fs-5 text-pink">(주) 하우리</strong>
+                            <span class="ps-3 small text-muted">Sep 2018 - Oct 2018</span>
+                        </div>
+                        <p class="mt-2 mb-1 ps-2 text-uppercase pixelator text-cyan">CERT</p>
+                        <p class="small m-0 ps-3">Malware analysis, Antivirus(ViRobot) engine updates, Customer support, Internal software development</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="project" class="tab-content ">
+        <div class="section">
+            <h2 class="text-uppercase text-center pixelator text-green">quest <span class="pixelator text-green" style="font-size: 0.6rem; letter-spacing: 0px;">(A.K.A. PROJ)</span></h2>
+            <ul>
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">차세대 보안리더 육성을 위한 사이버워게임 문항 추가구축 용역</strong>
+                        <span class="ps-3 small text-muted">Dec 2024 - Dec 2024</span>
+                    </div>
+                    <p class="small m-0">강원대학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">19년 사이버 대응 훈련센터 보강사업 유지보수 용역</strong>
+                        <span class="ps-3 small text-muted">Mar 2024 - Dec 2024</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">핵더챌린지 분석플랫폼 취약점 분석환경 개발 및 고도화</strong>
+                        <span class="ps-3 small text-muted">Jul 2023 - Feb 2023</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · System software</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">이기종 보안장비 비정형 이벤트 로그 정규화 및 정책 검증 API 시작품 개발</strong>
+                        <span class="ps-3 small text-muted">Jul 2023 - Dec 2023</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · AI, Web application</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">`23년 재단 홈페이지 유지보수 용역 과업지시서</strong>
+                        <span class="ps-3 small text-muted">Jul 2023 - Jul 2023</span>
+                    </div>
+                    <p class="small m-0">남북협력지구지원센터 · Web application</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">'23년 특수작전 모의훈련체계 유지보수 외주용역</strong>
+                        <span class="ps-3 small text-muted">Jun 2023 - Feb 2024</span>
+                    </div>
+                    <p class="small m-0">1987부대 · System software</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">19년 사이버대응 훈련센터 보강사업 유지보수 용역</strong>
+                        <span class="ps-3 small text-muted">Jan 2023 - Dec 2023</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">18년 사이버 온라인 교육센터 유지보수</strong>
+                        <span class="ps-3 small text-muted">Jan 2023 - Dec 2023</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">23년 핵더챌린지 분석플랫폼 운영</strong>
+                        <span class="ps-3 small text-muted">Jan 2023 - Dec 2023</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · System software</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">IoT 취약점 발굴을 위한 분석환경 구축</strong>
+                        <span class="ps-3 small text-muted">Jul 2022 - Nov 2022</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · System software</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">RnD 연구용 이기종 보안 장비 연동 및 정책 자동 적용 API 시작품 개발</strong>
+                        <span class="ps-3 small text-muted">Jul 2022 - Nov 2022</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · AI, Web application</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">18년 사이버침해대응훈련장 구축사업 유지보수</strong>
+                        <span class="ps-3 small text-muted">Jan 2022 - Dec 2022</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">19년 사이버대응 훈련센터 보강사업 유지보수</strong>
+                        <span class="ps-3 small text-muted">Jan 2022 - Dec 2022</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">기업보안 정보보호 경진대회 시스템 구축 및 운영</strong>
+                        <span class="ps-3 small text-muted">Nov 2020 - Dec 2021</span>
+                    </div>
+                    <p class="small m-0">서울여자대학교 · CTF contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">문화재청 정보보안 중장기 마스터플랜 수립</strong>
+                        <span class="ps-3 small text-muted">Oct 2020 - Jan 2021</span>
+                    </div>
+                    <p class="small m-0">문화재청 · System software</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">사이버교전 실습실 구축사업</strong>
+                        <span class="ps-3 small text-muted">Sep 2020 - Dec 2021</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">침해사고 신고 자동접수대응 시스템 구축</strong>
+                        <span class="ps-3 small text-muted">Jul 2020 - Jan 2021</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · AI</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">2020년 대학 정보보호 동아리 정보보호 교육과정 개발 및 운영 등 용역</strong>
+                        <span class="ps-3 small text-muted">Mar 2020 - Dec 2020</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">AI보안 기술개발 챌린지 플랫폼 개발</strong>
+                        <span class="ps-3 small text-muted">Mar 2020 - Dec 2020</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · System software</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">2020년 온라인 실전형 사이버훈련장 운영 및 시스템 유지보수</strong>
+                        <span class="ps-3 small text-muted">Mar 2020 - Dec 2020</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · CTF contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">서울여대 경진대회</strong>
+                        <span class="ps-3 small text-muted">Oct 2019 - Oct 2019</span>
+                    </div>
+                    <p class="small m-0">서울여자대학교 · CTF contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">온라인 실전형 사이버훈련장 시스템 개발 및 운영</strong>
+                        <span class="ps-3 small text-muted">Aug 2019 - Dec 2019</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · Cybersecurity contents</p>
+                </li>
+
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">실전형 사이버훈련장 훈련콘텐츠 신규 개발</strong>
+                        <span class="ps-3 small text-muted">Aug 2019 - Dec 2019</span>
+                    </div>
+                    <p class="small m-0">한국인터넷진흥원 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">실전형 사이버훈련장 훈련콘텐츠 고도화</strong>
+                        <span class="ps-3 small text-muted">Aug 2019 - Dec 2019</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">사이버전 실습교육 시스템 구축사업</strong>
+                        <span class="ps-3 small text-muted">Jul 2019 - Nov 2019</span>
+                    </div>
+                    <p class="small m-0">공군사관학교 · Cybersecurity contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">사이버 침해대응 전문인력 양성체계 구축 자재 구매</strong>
+                        <span class="ps-3 small text-muted">Jun 2019 - Aug 2019</span>
+                    </div>
+                    <p class="small m-0">서부발전 · CTF contents</p>
+                </li>
+
+                <li class="py-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <strong class="fs-5">18년 사이버 침해대응훈련장 교체사업</strong>
+                        <span class="ps-3 small text-muted">Feb 2019 - Mar 2019</span>
+                    </div>
+                    <p class="small m-0">육군정보통신학교 · Cybersecurity contents</p>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <div id="skill" class="tab-content ">
+            <div class="section">
+                <h2 class="text-uppercase text-center pixelator text-green">skill</h2>
+                <ul class="auto-grid">
+                    <li class="card" style="--bg-image: url('./logo/python.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">python</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/csharp.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">c sharp</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/cpp.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">c++</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/c.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">c</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/php.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">php</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/css.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">css</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/js.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">js</span>
+                        <div class="glow"></div>
+                    </li>
+
+                    <li class="card" style="--bg-image: url('./logo/html.png')">
+                        <span class="text-uppercase pixelator px-3 py-3" style="font-size: .6rem;">html</span>
+                        <div class="glow"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="link" class="tab-content ">
+            <div class="section">
+                <h2 class="text-uppercase text-center pixelator text-green">link</h2>
+                <ul>
+                    <li class="py-2">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <i class="fa-solid fa-envelope fs-5"></i>
+                            <span class="ps-3 pixelator">4eznfun@gmail.com</span>
+                        </div>
+                    </li>
+
+                    <li class="py-2">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <i class="fa-brands fa-github fs-5"></i>
+                            <a href="https://github.com/2jinu" target="_blank" class="ps-3 pixelator">https://github.com/2jinu</a>
+                        </div>
+                    </li>
+
+                    <li class="py-2">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <i class="fa-solid fa-blog fs-5"></i>
+                            <a href="https://velog.io/@2jinu" target="_blank" class="ps-3 pixelator">https://velog.io/@2jinu</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to the clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+
+        const $cards = document.querySelectorAll(".card");
+        $cards.forEach(($card) => {
+            let bounds;
+
+            function rotateToMouse(e) {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                const leftX = mouseX - bounds.x;
+                const topY = mouseY - bounds.y;
+                const center = { x: leftX - bounds.width / 2, y: topY - bounds.height / 2 };
+                const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+
+                $card.style.transform = `scale3d(1.07, 1.07, 1.07) rotate3d(${center.y / 100}, ${-center.x / 100}, 0, ${Math.log(distance) * 2}deg)`;
+                $card.querySelector(".glow").style.backgroundImage = `radial-gradient(circle at ${center.x * 2 + bounds.width / 2}px ${center.y * 2 + bounds.height / 2}px, #ffffff55, #0000000f)`;
+            }
+
+            $card.addEventListener("mouseenter", () => {
+                bounds = $card.getBoundingClientRect();
+                document.addEventListener("mousemove", rotateToMouse);
+            });
+
+            $card.addEventListener("mouseleave", () => {
+                document.removeEventListener("mousemove", rotateToMouse);
+                $card.style.transform = "";
+                $card.style.background = "";
+            });
+        });
+
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
